@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groupie Tracker - Artists</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/filters.css">
+  <link rel="stylesheet" href="/static/css/search.css" />
+</head>
+<body class="default-page">
+
+  <header>
+    <div class="title-box">
+      <h1 class="title">Explore Legendary Artists</h1>
+    </div>
+    <nav>
+      <a href="/home" class="nav-link">Home</a>
+      <a href="/about" class="nav-link">About</a>
+    </nav>    
+  </header>
+
+  <!-- Toggle button that shows/hides the filter overlay -->
+  <button id="toggleFiltersBtn" class="interactive-btn">Show Filters</button>
+
+  <!-- The fixed overlay that slides in/out from the left -->
+  <div id="filtersOverlay">
+    <h2>Filters</h2>
+    <div class="filter-group">
+      <h3>Creation Year (range)</h3>
+      <label for="minCreation">Min:</label>
+      <input type="range" id="minCreation" name="minCreation" min="1950" max="2025" value="1950">
+      <span id="minCreationValue">1950</span>
+
+      <label for="maxCreation">Max:</label>
+      <input type="range" id="maxCreation" name="maxCreation" min="1950" max="2025" value="2025">
+      <span id="maxCreationValue">2025</span>
+    </div>
+
+    <div class="filter-group">
+      <h3>First Album Year (range)</h3>
+      <label for="minAlbum">Min:</label>
+      <input type="range" id="minAlbum" name="minAlbum" min="1950" max="2025" value="1950">
+      <span id="minAlbumValue">1950</span>
+
+      <label for="maxAlbum">Max:</label>
+      <input type="range" id="maxAlbum" name="maxAlbum" min="1950" max="2025" value="2025">
+      <span id="maxAlbumValue">2025</span>
+    </div>
+
+    <div class="filter-group">
+      <h3>Number of Members</h3>
+      <div class="members-checkboxes">
+        <label><input type="checkbox" class="membersChk" value="1" />1</label>
+        <label><input type="checkbox" class="membersChk" value="2" />2</label>
+        <label><input type="checkbox" class="membersChk" value="3" />3</label>
+        <label><input type="checkbox" class="membersChk" value="4" />4</label>
+        <label><input type="checkbox" class="membersChk" value="5" />5</label>
+        <label><input type="checkbox" class="membersChk" value="6" />6</label>
+        <label><input type="checkbox" class="membersChk" value="7" />7</label>
+        <label><input type="checkbox" class="membersChk" value="8" />8</label>
+      </div>
+    </div>
+
+    <div class="filter-group">
+      <h3>Concert Locations</h3>
+      <input
+      type="text"
+      id="locationSearchInput"
+      placeholder="Search locations..."
+      style="width: 100%; margin-bottom: 8px; padding: 4px;"
+      />
+      <div id="locationCheckboxes" class="scrollable-checkbox-list">
+      </div>
+    </div>
+
+    <div style="margin-top: 10px;">
+      <button id="applyFiltersBtn" class="interactive-btn">Apply Filters</button>
+      <button id="clearFiltersBtn" class="interactive-btn">Clear Filters</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="search-bar-container">
+      <input type="text" id="searchInput" placeholder="Search..." autocomplete="on" />
+      <ul id="suggestions" class="suggestion-list"></ul>
+    </div>
+
+    <section>
+      <div class="artist-container" id="filteredList"></div>
+    </section>
+
+    <div class="artist-container" id="artistList"></div>
+    <div class="pagination-container" id="pagination"></div>
+
+    <button id="backToTopBtn" class="back-to-top">↑ Back to Top</button>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Groupie Tracker 🖤 Zone01 </p>
+  </footer>
+
+  <script src="/static/js/app.js" defer></script>
+  <script src="/static/js/search.js" defer></script>
+  <script src="/static/js/index.js" defer></script>
+  <script src="/static/js/filters.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* The overlay is fixed to the left, full height, hidden by default. */
+#filtersOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    background-color: rgba(20, 30, 60, 0.9);
+    box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+    padding: 16px;
+    overflow-y: auto;
+    transform: translateX(-100%); /* hidden off left side initially */
+    transition: transform 0.3s ease;
+    z-index: 9999; /* float above the main content */
+  }
+  
+  /* This class slides the overlay into view */
+  #filtersOverlay.visible {
+    transform: translateX(0);
+  }
+  
+  /* The button that toggles the overlay. 
+     You can position it absolutely or let it flow in normal layout. */
+  #toggleFiltersBtn {
+    margin: 20px;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    z-index: 10000; 
+  }
+
+  #locationCheckboxes {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 8px;
+    background-color: #8287d1;
+    font-size: 0.95rem;
+  }
+  #locationCheckboxes label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  

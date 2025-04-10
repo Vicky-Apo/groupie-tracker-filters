@@ -1,0 +1,50 @@
+/* About Section */
+.about-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--shadow-color);
+    text-align: center;
+  }
+  
+  .about-container h2 {
+    color: var(--accent-color);
+    background: transparent;
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 5px;
+    text-shadow: 0 0 4px var(--shadow-color);
+    margin-bottom: 20px;
+  }
+  
+  .about-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  /* Team Members Grid */
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.team-members .member {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-members .member:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--shadow-color);
+}

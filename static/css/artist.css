@@ -1,0 +1,117 @@
+body.default-page {
+  background-image: url("/static/img/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+.title {
+  font-size: 2.8rem;
+  color: #7b9df2;
+  text-align: center;
+  margin: 30px 0;
+  font-weight: bold;
+  padding: 20px;
+  background-color: rgba(20, 30, 60, 0.6);
+  border-radius: 8px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.artist-details-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(20, 30, 60, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.artist-image-section img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.artist-info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #add8ff;
+}
+
+.artist-info-section p {
+  margin-bottom: 1rem;
+}
+
+.info-tag {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  margin: 5px 5px;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+}
+
+button.toggle-section {
+  background-color: #4d5b71;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.toggle-section:hover {
+  background-color: #3a4b5c;
+  transform: scale(1.05);
+}
+
+.return-btn {
+  background: #4d5b71;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.return-btn:hover {
+  background: #3a4b5c;
+  transform: scale(1.05);
+}
+
+#members-list,
+#locations-list,
+#dates-list,
+#dates-locations-list {
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#members-list.show,
+#locations-list.show,
+#dates-list.show,
+#dates-locations-list.show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .artist-details-container {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+}
