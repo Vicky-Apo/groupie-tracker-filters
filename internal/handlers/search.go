@@ -31,7 +31,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	// Match by artist, members, dates
 	for _, artist := range data.AllArtists {
 		// Artist name
-		if strings.HasPrefix(strings.ToLower(artist.Name), query) {
+		if strings.Contains(utils.NormalizeString(artist.Name), utils.NormalizeString(query)) {
 			key := artist.Name + "_Artist"
 			if !seen[key] {
 				results = append(results, SearchResult{
@@ -46,7 +46,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 
 		// Members
 		for _, member := range artist.Members {
-			if strings.HasPrefix(strings.ToLower(member), query) {
+			if strings.Contains(utils.NormalizeString(member), utils.NormalizeString(query)) {
 				key := member + "_Member"
 				if !seen[key] {
 					results = append(results, SearchResult{

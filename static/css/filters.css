@@ -91,12 +91,15 @@
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
 input[type=number] {
+  appearance: textfield;
   -moz-appearance: textfield; /* Firefox */
 }
+
 
 #clearFiltersBtn {
   background-color: #b40c00;
@@ -124,4 +127,62 @@ input[type=number] {
 
 #applyFiltersBtn:hover {
   background-color: #1f5fbf;
+}
+@media (max-width: 500px) {
+  #filtersOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 12px;
+    z-index: 1000;
+    background-color: rgba(20, 30, 60, 0.9);
+  }
+
+  #filtersOverlay h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  #filtersOverlay button,
+  #filtersOverlay input,
+  #filtersOverlay select {
+    font-size: 1rem;
+  }
+
+  #toggleFiltersBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    padding: 6px 12px;
+    background-color: #1c1f2e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    max-width: 90%;
+  }
+
+  #toggleFiltersBtn:hover {
+    background-color: #2e3b5c;
+  }
+
+  .filter-group label,
+  .filter-group input,
+  .filter-group h3 {
+    font-size: 0.9rem;
+  }
+
+  #applyFiltersBtn,
+  #clearFiltersBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #locationCheckboxes {
+    max-height: 150px;
+  }
 }

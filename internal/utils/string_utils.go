@@ -54,3 +54,10 @@ func NormalizeQuery(s string) string {
 	}
 	return strings.ReplaceAll(s, " ", "_")
 }
+func NormalizeString(s string) string {
+	s = strings.ToLower(s)
+	s = strings.ReplaceAll(s, "_", " ")
+	s = strings.ReplaceAll(s, "-", " ")
+	s = strings.Join(strings.Fields(s), " ") // trims & normalizes spacing
+	return s
+}
