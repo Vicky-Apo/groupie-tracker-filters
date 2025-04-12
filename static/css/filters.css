@@ -18,15 +18,12 @@
   #filtersOverlay.visible {
     transform: translateX(0);
   }
-  
-  /* The button that toggles the overlay. 
-     You can position it absolutely or let it flow in normal layout. */
+
   #toggleFiltersBtn {
-    margin: 20px;
-    position: absolute;
-    top: 0; 
-    left: 0;
-    z-index: 10000; 
+    display: block;
+    margin: 20px auto 10px;
+    text-align: center;
+    max-width: 300px;
   }
 
   #locationCheckboxes {
@@ -34,7 +31,7 @@
     overflow-y: auto;
     border: 1px solid #ccc;
     padding: 8px;
-    background-color: #8287d1;
+    background-color: #2f2e94;
     font-size: 0.95rem;
   }
   #locationCheckboxes label {
@@ -42,4 +39,89 @@
     margin-bottom: 5px;
     cursor: pointer;
   }
+
+  /* Year input boxes next to sliders */
+  #minCreationInput,
+  #maxCreationInput,
+  #minAlbumInput,
+  #maxAlbumInput {
+    width: 60px;
+    padding: 4px 6px;
+    font-size: 0.95rem;
+    margin-left: 6px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3434b1;
+    color: #ffffff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    transition: border 0.2s ease, box-shadow 0.3s ease;
+    vertical-align: middle;
+  }
   
+  #minCreationInput:focus,
+  #maxCreationInput:focus,
+  #minAlbumInput:focus,
+  #maxAlbumInput:focus {
+    outline: none;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 6px var(--accent-color);
+  }
+  
+  /* Style and compact the search box */
+  #locationSearchInput {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #3434b1;
+    color: #ffffff;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    transition: border 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  #locationSearchInput:focus {
+    outline: none;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 6px var(--accent-color);
+  }
+
+  /* Remove arrows from number inputs in all browsers */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+#clearFiltersBtn {
+  background-color: #b40c00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#clearFiltersBtn:hover {
+  background-color: #dd4e3b;
+}
+
+#applyFiltersBtn {
+  background-color: #2d8ddb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#applyFiltersBtn:hover {
+  background-color: #1f5fbf;
+}

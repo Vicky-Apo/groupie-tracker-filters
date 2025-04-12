@@ -1,7 +1,7 @@
 .search-container {
     position: relative;
     margin: 20px auto;
-    max-width: 600px;
+    max-width: 500px;
   }
   
   .search-input {
@@ -52,7 +52,7 @@
   .search-bar-container {
     position: relative;
     max-width: 500px;
-    margin: 40px auto;
+    margin: 20px auto;
     z-index: 10;
   }
   .suggestion-list {

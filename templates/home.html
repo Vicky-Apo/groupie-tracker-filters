@@ -27,23 +27,27 @@
   <div id="filtersOverlay">
     <h2>Filters</h2>
     <div class="filter-group">
-      <h3>Creation Year (range)</h3>
+      <h3>Creation Year</h3>
       <label for="minCreation">Min:</label>
+      <input type="number" id="minCreationInput" min="1950" max="2025" value="1950">
       <input type="range" id="minCreation" name="minCreation" min="1950" max="2025" value="1950">
       <span id="minCreationValue">1950</span>
 
       <label for="maxCreation">Max:</label>
+      <input type="number" id="maxCreationInput" min="1950" max="2025" value="2025">
       <input type="range" id="maxCreation" name="maxCreation" min="1950" max="2025" value="2025">
       <span id="maxCreationValue">2025</span>
     </div>
 
     <div class="filter-group">
-      <h3>First Album Year (range)</h3>
+      <h3>First Album Year</h3>
       <label for="minAlbum">Min:</label>
+      <input type="number" id="minAlbumInput" min="1950" max="2025" value="1950">
       <input type="range" id="minAlbum" name="minAlbum" min="1950" max="2025" value="1950">
       <span id="minAlbumValue">1950</span>
 
       <label for="maxAlbum">Max:</label>
+      <input type="number" id="maxAlbumInput" min="1950" max="2025" value="2025">
       <input type="range" id="maxAlbum" name="maxAlbum" min="1950" max="2025" value="2025">
       <span id="maxAlbumValue">2025</span>
     </div>
@@ -75,8 +79,8 @@
     </div>
 
     <div style="margin-top: 10px;">
-      <button id="applyFiltersBtn" class="interactive-btn">Apply Filters</button>
-      <button id="clearFiltersBtn" class="interactive-btn">Clear Filters</button>
+      <button id="applyFiltersBtn" class="applyFiltersBtn">Apply Filters</button>
+      <button id="clearFiltersBtn" class="clearFiltersBtn">Clear Filters</button>
     </div>
   </div>
 

@@ -120,6 +120,56 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  const minCreationInput = document.getElementById("minCreationInput");
+  const maxCreationInput = document.getElementById("maxCreationInput");
+  const minAlbumInput = document.getElementById("minAlbumInput");
+  const maxAlbumInput = document.getElementById("maxAlbumInput");
+
+  if (minCreation && minCreationInput) {
+    minCreation.addEventListener("input", () => {
+      minCreationValue.textContent = minCreation.value;
+      minCreationInput.value = minCreation.value;
+    });
+    minCreationInput.addEventListener("input", () => {
+      const val = Math.max(1950, Math.min(2025, parseInt(minCreationInput.value) || 1950));
+      minCreation.value = val;
+      minCreationValue.textContent = val;
+    });
+  }
+  if (maxCreation && maxCreationInput) {
+    maxCreation.addEventListener("input", () => {
+      maxCreationValue.textContent = maxCreation.value;
+      maxCreationInput.value = maxCreation.value;
+    });
+    maxCreationInput.addEventListener("input", () => {
+      const val = Math.max(1950, Math.min(2025, parseInt(maxCreationInput.value) || 2025));
+      maxCreation.value = val;
+      maxCreationValue.textContent = val;
+    });
+  }
+  if (minAlbum && minAlbumInput) {
+    minAlbum.addEventListener("input", () => {
+      minAlbumValue.textContent = minAlbum.value;
+      minAlbumInput.value = minAlbum.value;
+    });
+    minAlbumInput.addEventListener("input", () => {
+      const val = Math.max(1950, Math.min(2025, parseInt(minAlbumInput.value) || 1950));
+      minAlbum.value = val;
+      minAlbumValue.textContent = val;
+    });
+  }
+  if (maxAlbum && maxAlbumInput) {
+    maxAlbum.addEventListener("input", () => {
+      maxAlbumValue.textContent = maxAlbum.value;
+      maxAlbumInput.value = maxAlbum.value;
+    });
+    maxAlbumInput.addEventListener("input", () => {
+      const val = Math.max(1950, Math.min(2025, parseInt(maxAlbumInput.value) || 2025));
+      maxAlbum.value = val;
+      maxAlbumValue.textContent = val;
+    });
+  }
+
   // 5) "Apply Filters" button
   if (applyFiltersBtn) {
     applyFiltersBtn.addEventListener("click", () => {
@@ -193,6 +243,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (maxAlbumValue) maxAlbumValue.textContent = "2025";
     }
 
+    if (minCreationInput) minCreationInput.value = "1950";
+    if (maxCreationInput) maxCreationInput.value = "2025";
+    if (minAlbumInput) minAlbumInput.value = "1950";
+    if (maxAlbumInput) maxAlbumInput.value = "2025";
+
     // Uncheck members
     membersCheckboxes.forEach((cb) => {
       cb.checked = false;
@@ -202,6 +257,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".locationChk").forEach((cb) => {
       cb.checked = false;
     });
+
+    // Clear location search input
+    const locationSearchInput = document.getElementById("locationSearchInput");
+    if (locationSearchInput) {
+      locationSearchInput.value = "";
+      renderLocationCheckboxes(allLocations);
+    }
 
     // Clear filtered results
     filteredList.innerHTML = "";
