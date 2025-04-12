@@ -19,6 +19,7 @@ type SearchResult struct {
 
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	query := strings.ToLower(r.URL.Query().Get("query"))
+	query = utils.NormalizeQuery(query)
 	if query == "" {
 		json.NewEncoder(w).Encode([]SearchResult{})
 		return
@@ -96,11 +97,12 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		// First album date (exact match, can be mid-string)
-		if strings.Contains(strings.ToLower(artist.FirstAlbum), query) {
-			key := artist.FirstAlbum + "_First_Album"
+		cleanedAlbumDate := utils.CleanDate(artist.FirstAlbum)
+		if strings.Contains(strings.ToLower(cleanedAlbumDate), query) {
+			key := cleanedAlbumDate + "_First_Album"
 			if !seen[key] {
 				results = append(results, SearchResult{
-					Value:  artist.FirstAlbum + " — First Album Date",
+					Value:  cleanedAlbumDate + " — First Album Date",
 					Type:   "first album date",
 					Artist: artist.Name,
 					ID:     artist.ID,
@@ -135,6 +137,20 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 							ID:     artist.ID,
 						})
 						seen[locKey] = true
+					}
+					for _, date := range rel.DatesLocations[location] {
+						cleanedDate := utils.CleanDate(date)
+						dateKey := location + cleanedDate + "_ConcertDate"
+
+						if strings.Contains(strings.ToLower(cleanedDate), query) && !seen[dateKey] {
+							results = append(results, SearchResult{
+								Value:  cleanedDate + " — Concert Date",
+								Type:   "concert date",
+								Artist: artist.Name,
+								ID:     artist.ID,
+							})
+							seen[dateKey] = true
+						}
 					}
 
 					artistKey := artist.Name + "_Artist_Location"

@@ -82,7 +82,7 @@ body {
   text-align: center;
   margin: 10px 0;
   font-weight: bold;
-  text-shadow: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   padding: 8px 16px; /* smaller padding */
   background-color: rgba(20, 30, 60, 0.6);
   border-radius: 8px;
@@ -92,7 +92,7 @@ body {
 /* Header */
 header {
   background-color: rgba(20, 30, 60, 0.7);
-  padding: 0.2rem 1rem;
+  padding: 8px 16px;
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);

@@ -25,57 +25,62 @@
     </div>
 
     <div class="artist-info-section">
-      <h2>{{.Artist.Name}}</h2>
-      <p><strong>Creation Year:</strong> {{.Artist.CreationDate}}</p>
-      <div class="first-album">
-        <h3>First Album</h3>
-        <p>{{.Artist.FirstAlbum}}</p>
-      </div>
-
-      <div class="members-section">
-        <h3>Members <button class="toggle-section" data-target="members-list">Show</button></h3>
-        <ul id="members-list" class="info-list">
-          {{range .Artist.Members}}
-            <li class="info-tag">👤 {{.}}</li>
-          {{end}}
-        </ul>
-      </div>
-
-      <div class="locations-section">
-        <h3>Locations <button class="toggle-section" data-target="locations-list">Show</button></h3>
-        <ul id="locations-list" class="info-list">
-          {{range .Locations}}
-            <li class="info-tag">📍 {{ formatLocation . }}</li>
-          {{end}}
-        </ul>
-      </div>
-
-      <div class="concert-dates">
-        <h3>Concert Dates <button class="toggle-section" data-target="dates-list">Show</button></h3>
-        <ul id="dates-list" class="info-list">
-          {{range .Dates}}
-            <li class="info-tag">📅 {{ cleanDate . }}</li>
-          {{end}}
-        </ul>
-      </div>
-
-      <div class="dates-map">
-        <h3>Dates/Locations Map <button class="toggle-section" data-target="dates-locations-list">Show</button></h3>
-        <div id="dates-locations-list" class="info-list">
-          {{range $location, $dates := .DatesLocMap}}
-            <div class="date-card">
-              <h4>📍 {{ formatLocation $location }}</h4>
-              <ul>
-                {{range $dates}}
-                  <li class="info-tag">📅 {{.}}</li>
-                {{end}}
-              </ul>
-            </div>
-          {{end}}
+      <div class="artist-info-grid">
+        <div>
+          <h2>🎤 {{.Artist.Name}}</h2>
+          <p><strong>Creation Year:</strong> {{.Artist.CreationDate}}</p>
+        </div>
+    
+        <div class="first-album">
+          <h3>📀 First Album</h3>
+          <p>{{.Artist.FirstAlbum}}</p>
+        </div>
+    
+        <div class="members-section">
+          <h3>🧑‍🤝‍🧑 Members <button class="toggle-section" data-target="members-list">Show</button></h3>
+          <ul id="members-list" class="info-list">
+            {{range .Artist.Members}}
+              <li class="info-tag">👤 {{.}}</li>
+            {{end}}
+          </ul>
+        </div>
+    
+        <div class="locations-section">
+          <h3>📍 Locations <button class="toggle-section" data-target="locations-list">Show</button></h3>
+          <ul id="locations-list" class="info-list">
+            {{range .Locations}}
+              <li class="info-tag">📌 {{ formatLocation . }}</li>
+            {{end}}
+          </ul>
+        </div>
+    
+        <div class="concert-dates">
+          <h3>📅 Concert Dates <button class="toggle-section" data-target="dates-list">Show</button></h3>
+          <ul id="dates-list" class="info-list">
+            {{range .Dates}}
+              <li class="info-tag">🎫 {{ cleanDate . }}</li>
+            {{end}}
+          </ul>
+        </div>
+    
+        <div class="dates-map">
+          <h3>🗺️ Dates/Locations Map <button class="toggle-section" data-target="dates-locations-list">Show</button></h3>
+          <div id="dates-locations-list" class="info-list">
+            {{range $location, $dates := .DatesLocMap}}
+              <div class="date-card">
+                <h4>📍 {{ formatLocation $location }}</h4>
+                <ul>
+                  {{range $dates}}
+                    <li class="info-tag">📅 {{.}}</li>
+                  {{end}}
+                </ul>
+              </div>
+            {{end}}
+          </div>
         </div>
       </div>
     </div>
-  </main>
+    
 
   <div style="text-align: center; margin: 20px;">
     <a href="#" class="return-btn" id="goBackBtn">← Go Back</a>

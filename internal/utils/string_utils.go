@@ -37,5 +37,20 @@ func ReplaceSpaces(s string) string {
 
 // CleanDate removes all asterisk (*) characters from a date string.
 func CleanDate(date string) string {
-	return strings.ReplaceAll(date, "*", "")
+	cleaned := strings.ReplaceAll(date, "*", "")
+	parts := strings.Fields(cleaned)
+
+	if len(parts) == 3 {
+		return parts[0] + "-" + parts[1] + "-" + parts[2]
+	}
+	return cleaned
+}
+
+// NormalizeQuery converts user input to the same format as stored data (e.g. "New York" -> "New_York")
+func NormalizeQuery(s string) string {
+	// Only replace spaces with underscores if there are no digits (i.e. it's not a date)
+	if strings.ContainsAny(s, "0123456789") {
+		return s
+	}
+	return strings.ReplaceAll(s, " ", "_")
 }

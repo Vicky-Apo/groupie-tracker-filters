@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function formatSuggestion(value) {
       const [rawText, type] = value.split(" — ");
       const formattedText = rawText
-        .replace(/-/g, " ")
         .split(" ")
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
